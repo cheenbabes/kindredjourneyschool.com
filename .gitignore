@@ -28,6 +28,9 @@
 public/images/Photos-3-001/
 public/images/new-photos/
 
+# old wix site export
+oldsite/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export const dynamic = "force-dynamic";
@@ -9,7 +8,7 @@ export async function POST(request: Request) {
     const { firstName, lastName, email, phone, message } = await request.json();
 
     if (!firstName || !email) {
-      return NextResponse.json(
+      return Response.json(
         { error: "First name and email are required" },
         { status: 400 }
       );
@@ -17,9 +16,9 @@ export async function POST(request: Request) {
 
     const toEmail = process.env.CONTACT_EMAIL || "eugene.baibourine@gmail.com";
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Kindred Journey School <onboarding@resend.dev>",
-      to: toEmail,
+      to: [toEmail],
       replyTo: email,
       subject: `New inquiry from ${firstName} ${lastName || ""}`.trim(),
       html: `
@@ -51,10 +50,16 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ success: true });
+    if (error) {
+      console.error("Resend error:", error);
+      return Response.json({ error: error.message }, { status: 500 });
+    }
+
+    console.log("Email sent:", data);
+    return Response.json(data);
   } catch (error) {
     console.error("Contact form error:", error);
-    return NextResponse.json(
+    return Response.json(
       { error: "Failed to send message. Please try again." },
       { status: 500 }
     );

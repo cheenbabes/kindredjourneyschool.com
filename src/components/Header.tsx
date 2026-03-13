@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
@@ -39,15 +38,8 @@ export default function Header() {
     >
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <Image
-            src="/images/logo.png"
-            alt="Kindred Journey School"
-            width={40}
-            height={40}
-            className="transition-transform duration-300 group-hover:scale-105"
-          />
-          <span className="font-heading text-lg font-semibold text-forest hidden sm:block">
+        <Link href="/" className="flex items-center group">
+          <span className="font-heading text-xl font-semibold text-forest transition-opacity duration-300 group-hover:opacity-80">
             Kindred Journey
           </span>
         </Link>

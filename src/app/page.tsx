@@ -19,13 +19,6 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-3xl animate-fade-in-up">
-          <Image
-            src="/images/logo.png"
-            alt="Kindred Journey School logo"
-            width={80}
-            height={80}
-            className="mx-auto mb-8 drop-shadow-lg"
-          />
           <h1 className="font-heading text-5xl md:text-7xl text-cream font-light tracking-tight mb-6">
             Kindred Journey
             <span className="block text-terracotta-light">School</span>

@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# original photos (large HEIC files and temp conversions)
+public/images/Photos-3-001/
+public/images/new-photos/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

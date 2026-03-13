@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const toEmail = process.env.CONTACT_EMAIL || "eugene.baibourine@gmail.com";
 
     const { data, error } = await resend.emails.send({
-      from: "Kindred Journey School <onboarding@resend.dev>",
+      from: "Kindred Journey School <director@kindredjourneyschool.com>",
       to: [toEmail],
       replyTo: email,
       subject: `New inquiry from ${firstName} ${lastName || ""}`.trim(),

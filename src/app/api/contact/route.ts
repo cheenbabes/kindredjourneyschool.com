@@ -14,12 +14,10 @@ export async function POST(request: Request) {
       );
     }
 
-    const toEmail = process.env.CONTACT_EMAIL || "eugene.baibourine@gmail.com";
-
     const { data, error } = await resend.emails.send({
       from: "Kindred Journey School <director@kindredjourneyschool.com>",
-      to: [toEmail],
-      replyTo: email,
+      to: ["director@kindredjourneyschool.com", "eugene.baibourine@gmail.com"],
+      replyTo: "director@kindredjourneyschool.com",
       subject: `New inquiry from ${firstName} ${lastName || ""}`.trim(),
       html: `
         <div style="font-family: sans-serif; max-width: 600px;">

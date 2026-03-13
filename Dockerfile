@@ -1,11 +1,11 @@
 FROM node:20-alpine
 
 WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json ./
+RUN npm install --legacy-peer-deps
 COPY . .
-RUN npm run build
+RUN npx next build
 
 EXPOSE 3000
 ENV PORT=3000
-CMD ["npm", "run", "start"]
+CMD ["npx", "next", "start"]

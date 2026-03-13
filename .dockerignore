@@ -1,0 +1,7 @@
+node_modules
+.next
+.git
+oldsite
+public/images/Photos-3-001
+public/images/new-photos
+.env.local
